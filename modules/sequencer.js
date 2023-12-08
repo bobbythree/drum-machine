@@ -1,25 +1,23 @@
 //Constants
+const MAX_BEATS = 16;
 
 //Variables
 var isPlaying = false;
 var currentBeat = 0;
 
 //Reset the sequencer
-function Stop()
-{
+function Stop() {
     console.debug("Stopping sequencer");
     currentBeat = 0;
     isPlaying = false;
 }
 
-function Play()
-{
+function Play() {
     console.debug("Starting sequencer");
     isPlaying = true;
 }
 
-function Pause()
-{
+function Pause() {
     console.debug("Pausing sequencer");
     isPlaying = false;
 }
@@ -27,7 +25,22 @@ function Pause()
 function Update() {
     console.debug("Updating sequencer");
 
-    //TODO: If time to move along to next beat, loop arounnd etc
-    currentBeat++;
-    document.getElementById("sb01").style.backgroundColor="darkred";
+    //TODO: If time to move along to next beat 
+
+    if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
+    {
+        currentBeat = 0;
+    }
+    else
+    {
+        currentBeat++;
+    }
+
+    //Update UI
+    var sequencerButtonID = "sb" + currentBeat;
+    document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+  }
+
+  function CheckTiming(){
+
   }
