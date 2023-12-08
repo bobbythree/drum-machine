@@ -6,13 +6,20 @@ var isPlaying = false;
 var currentBeat = 0;
 var startTime = 0;
 
+function Reset() {
+    console.debug("Resetting sequencer");
+    window.setInterval("Update()", 1);
+    currentBeat = 0;
+}
+
 //Reset the sequencer
 function Stop() {
     if(isPlaying) {
-        console.debug("Stopping sequencer");
-        currentBeat = 0;
+        console.debug("Stopping sequencer");        
         isPlaying = false;
         document.getElementById("playButton").style.backgroundColor="#a3a3a3";
+
+        Reset();
     }
 }
 
@@ -28,10 +35,11 @@ function Play() {
     //     Update();
     //     yield;
     // }
+    
 }
 
 function Update() {
-    console.debug("Updating sequencer");
+    //console.debug("Updating sequencer");
 
     //TODO: If time to move along to next beat
 

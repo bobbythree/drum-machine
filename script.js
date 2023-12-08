@@ -41,5 +41,7 @@ function Initialize()
     document.getElementById("playButton").addEventListener('click', function() {
       Play();
     });
+
+    Reset();
 }
 
