@@ -1,11 +1,25 @@
-window.addEventListener('load', () => {
-  const pads = document.querySelectorAll('.pad');
-  const sounds = document.querySelectorAll('.sound');
+const pads = document.querySelectorAll('.pad');
+const sounds = document.querySelectorAll('.sound');
 
+window.addEventListener('load', () => {
   pads.forEach((pad, i) => {
     pad.addEventListener('click', function() {
-      sounds[i].currentTime = 0;
-      sounds[i].play();      
+      PlaySound(i);     
     });
   });
 }); 
+
+function PlaySound(soundIndex)
+{
+  console.debug("play sound");
+  if(soundIndex >= 0)
+  {
+    sounds[soundIndex].currentTime = 0;
+    sounds[soundIndex].play();      
+  }
+}
+
+// function Reset()
+// {
+
+// }
