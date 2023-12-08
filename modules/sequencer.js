@@ -24,7 +24,12 @@ function Update() {
     console.debug("Updating sequencer");
 
     //Update transport UI
-
+    if(isPlaying) {
+        document.getElementById("playButton").style.backgroundColor="green";
+    }
+    else {
+        document.getElementById("playButton").style.backgroundColor="##9ac1e0";
+    }
     
     //TODO: If time to move along to next beat 
 
