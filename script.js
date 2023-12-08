@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
 //Play the sound
 function PlaySound(soundIndex)
 {
+  console.debug("Playing sound index: " + soundIndex);
   if(soundIndex >= 0)
   {
     sounds[soundIndex].currentTime = 0;
@@ -32,5 +33,7 @@ function PlaySound(soundIndex)
 function Initialize()
 {
     console.debug("Initializing");
-    Reset();
+    Stop();
+    Update();
 }
+
