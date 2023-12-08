@@ -44,7 +44,10 @@ function Update() {
         {
             currentBeat++;
         }
-        console.debug("Current beat: " + currentBeat);    
+        console.debug("Current beat: " + currentBeat);   
+        
+        //TODO: Figure out which sound to play, for now HH
+        PlaySound(2);
     }
 
     //Update sequencer UI
