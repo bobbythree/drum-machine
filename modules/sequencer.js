@@ -4,6 +4,7 @@ const MAX_BEATS = 16;
 //Variables
 var isPlaying = false;
 var currentBeat = 0;
+var startTime = 0;
 
 //Reset the sequencer
 function Stop() {
@@ -13,18 +14,18 @@ function Stop() {
 }
 
 function Play() {
-    console.debug("Starting sequencer");
+    startTime = performance.now;
+    console.debug("Starting sequencer at: " + startTime);
+    
     isPlaying = true;
-}
-
-function Pause() {
-    console.debug("Pausing sequencer");
-    isPlaying = false;
 }
 
 function Update() {
     console.debug("Updating sequencer");
 
+    //Update transport UI
+    
+    
     //TODO: If time to move along to next beat 
 
     if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence

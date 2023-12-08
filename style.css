@@ -71,7 +71,7 @@ h1 {
 .transport {
   background-color: rgb(154, 193, 224);
   margin-top: 25px;
-  width: 250px;
+  width: 150px;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -93,7 +93,7 @@ h1 {
 }
 
 .sequencer {
-  background-color: rgba(0, 49, 141, 0.603);
+  background-color: rgba(0, 49, 141, 1);
   margin-top: 25px;
   width: 700px;
   height: 100px;
