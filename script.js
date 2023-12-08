@@ -1,7 +1,17 @@
+//Constants
 const pads = document.querySelectorAll('.pad');
 const sounds = document.querySelectorAll('.sound');
 
+//Variables
+var isPlaying = false;
+
+//Window load
 window.addEventListener('load', () => {
+
+  //Setup the sequencer
+  Initialize();
+
+  //Setup click listeners for pads
   pads.forEach((pad, i) => {
     pad.addEventListener('click', function() {
       PlaySound(i);     
@@ -9,9 +19,9 @@ window.addEventListener('load', () => {
   });
 }); 
 
+//Play the sound
 function PlaySound(soundIndex)
 {
-  console.debug("play sound");
   if(soundIndex >= 0)
   {
     sounds[soundIndex].currentTime = 0;
@@ -19,7 +29,8 @@ function PlaySound(soundIndex)
   }
 }
 
-// function Reset()
-// {
-
-// }
+function Initialize()
+{
+    console.debug("Initializing");
+    Reset();
+}
