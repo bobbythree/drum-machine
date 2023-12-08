@@ -14,7 +14,7 @@ function Stop() {
 }
 
 function Play() {
-    startTime = performance.now;
+    startTime = performance.now(); //Time since start in ms
     console.debug("Starting sequencer at: " + startTime);
     
     isPlaying = true;
@@ -24,7 +24,7 @@ function Update() {
     console.debug("Updating sequencer");
 
     //Update transport UI
-    
+
     
     //TODO: If time to move along to next beat 
 
@@ -49,7 +49,7 @@ function Update() {
         else
         {
             var sequencerButtonID = "sb" + currentBeat;
-            document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+            stopButton.style.backgroundColor="#bbb";
         }
     }
   }
