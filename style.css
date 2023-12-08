@@ -82,7 +82,7 @@ h1 {
 .transportButton {  
   display: block;
   margin: 5px;
-  background-color: rgb(163, 163, 163);
+  background-color: #a3a3a3;
   height: 25px;
   width: 50px;
   display: inline-block;
@@ -90,6 +90,7 @@ h1 {
   border-color: gray;
   border-width: 2px;
   border-style: solid;
+  cursor: default;
 }
 
 .sequencer {

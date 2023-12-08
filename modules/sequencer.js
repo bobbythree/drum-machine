@@ -8,30 +8,32 @@ var startTime = 0;
 
 //Reset the sequencer
 function Stop() {
-    console.debug("Stopping sequencer");
-    currentBeat = 0;
-    isPlaying = false;
+    if(isPlaying) {
+        console.debug("Stopping sequencer");
+        currentBeat = 0;
+        isPlaying = false;
+        document.getElementById("playButton").style.backgroundColor="#a3a3a3";
+    }
 }
 
 function Play() {
     startTime = performance.now(); //Time since start in ms
     console.debug("Starting sequencer at: " + startTime);
-    
+
     isPlaying = true;
+    document.getElementById("playButton").style.backgroundColor="green";
+
+    // while(isPlaying)
+    // {
+    //     Update();
+    //     yield;
+    // }
 }
 
 function Update() {
     console.debug("Updating sequencer");
 
-    //Update transport UI
-    if(isPlaying) {
-        document.getElementById("playButton").style.backgroundColor="green";
-    }
-    else {
-        document.getElementById("playButton").style.backgroundColor="##9ac1e0";
-    }
-    
-    //TODO: If time to move along to next beat 
+    //TODO: If time to move along to next beat
 
     if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
     {
