@@ -4,11 +4,13 @@ const MAX_BEATS = 16;
 //Variables
 var isPlaying = false;
 var currentBeat = 0;
-var startTime = 0;
+var tempo = 120;  //Beats per minute - TODO: adjust this from UI
+var timer;
 
 function Reset() {
     console.debug("Resetting sequencer");
-    window.setInterval("Update()", 1);
+    clearInterval(timer);
+    timer = window.setInterval("Update()", TempoToMillis(tempo));  
     currentBeat = 0;
 }
 
@@ -24,51 +26,43 @@ function Stop() {
 }
 
 function Play() {
-    startTime = performance.now(); //Time since start in ms
-    console.debug("Starting sequencer at: " + startTime);
-
+    console.debug("Starting sequencer");
     isPlaying = true;
     document.getElementById("playButton").style.backgroundColor="green";
-
-    // while(isPlaying)
-    // {
-    //     Update();
-    //     yield;
-    // }
-    
 }
 
 function Update() {
     //console.debug("Updating sequencer");
 
-    //TODO: If time to move along to next beat
+    if(isPlaying) {
 
-    if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
-    {
-        currentBeat = 0;
-    }
-    else
-    {
-        currentBeat++;
+        if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
+        {
+            currentBeat = 0;
+        }
+        else
+        {
+            currentBeat++;
+        }
+        console.debug("Current beat: " + currentBeat);    
     }
 
     //Update sequencer UI
     for(var i = 0; i < MAX_BEATS; i++)
     {
-        var sequencerButtonID = "sb" + currentBeat;
-
-        if(i === currentBeat)
+        var sequencerButtonID = "sb" + i;
+        if(i == currentBeat)
         {
             document.getElementById(sequencerButtonID).style.backgroundColor="#570000";
         }
         else
         {
-            var sequencerButtonID = "sb" + currentBeat;
-            stopButton.style.backgroundColor="#bbb";
+            document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
         }
     }
   }
 
-  function CheckTiming(){
-
+  //Return the ms to delay based on the bpm provided
+  function TempoToMillis(bpm){
+    return 1000.0 / (tempo / 60.0);
   }
