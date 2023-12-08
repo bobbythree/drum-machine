@@ -2,9 +2,6 @@
 const pads = document.querySelectorAll('.pad');
 const sounds = document.querySelectorAll('.sound');
 
-//Variables
-var isPlaying = false;
-
 //Window load
 window.addEventListener('load', () => {
 
