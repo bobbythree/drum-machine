@@ -36,9 +36,21 @@ function Update() {
         currentBeat++;
     }
 
-    //Update UI
-    var sequencerButtonID = "sb" + currentBeat;
-    document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+    //Update sequencer UI
+    for(var i = 0; i < MAX_BEATS; i++)
+    {
+        var sequencerButtonID = "sb" + currentBeat;
+
+        if(i === currentBeat)
+        {
+            document.getElementById(sequencerButtonID).style.backgroundColor="#570000";
+        }
+        else
+        {
+            var sequencerButtonID = "sb" + currentBeat;
+            document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+        }
+    }
   }
 
   function CheckTiming(){

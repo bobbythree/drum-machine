@@ -33,6 +33,7 @@ function PlaySound(soundIndex)
 function Initialize()
 {
     console.debug("Initializing");
+
     Stop();
     Update();
 }
