@@ -36,6 +36,20 @@ function Update() {
 
     if(isPlaying) {
 
+        //Update sequencer UI for playing indicator
+        for(var i = 0; i < MAX_BEATS; i++)
+        {
+            var sequencerButtonID = "sb" + i;
+            if(i == currentBeat)
+            {
+                document.getElementById(sequencerButtonID).style.backgroundColor="green";
+            }
+            else
+            {
+                document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+            }
+        }
+        
         if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
         {
             currentBeat = 0;
@@ -48,20 +62,8 @@ function Update() {
         
         //TODO: Figure out which sound to play, for now HH
         PlaySound(2);
-    }
 
-    //Update sequencer UI
-    for(var i = 0; i < MAX_BEATS; i++)
-    {
-        var sequencerButtonID = "sb" + i;
-        if(i == currentBeat)
-        {
-            document.getElementById(sequencerButtonID).style.backgroundColor="#570000";
-        }
-        else
-        {
-            document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
-        }
+        
     }
   }
 
