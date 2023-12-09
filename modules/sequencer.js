@@ -60,9 +60,9 @@ function Reset() {
 
     //Clear the stored beats
     for(var i = 0; i < MAX_BEATS; i++) {
-        BASS01_BEATS[i] = 1; //TEST
+        BASS01_BEATS[i] = 0; 
         SNARE01_BEATS[i] = 0; 
-        HIHAT01_BEATS[i] = 1; //TEST
+        HIHAT01_BEATS[i] = 0; 
         RIDE_BEATS[i] = 0; 
         BASS02_BEATS[i] = 0; 
         SNARE02_BEATS[i] = 0; 
@@ -129,31 +129,13 @@ function Update() {
         console.debug("Current beat: " + currentBeat);   
         
         //Play sounds that are stored in the arrays as 1 (on) or 0 (off).  
-        //This could be improved to use a volume instead of o/1
-        for(var j = 0; j < MAX_BEATS; j++) {
-            if(BASS01_BEATS[j] == 1) {
-                PlaySound(0);
-            }
-            if(SNARE01_BEATS[j] == 1) {
-                PlaySound(1);
-            }
-            if(HIHAT01_BEATS[j] == 1) {
-                PlaySound(2);
-            }
-            if(RIDE_BEATS[j] == 1) {
-                PlaySound(3);
-            }
-            if(BASS02_BEATS[j] == 1) {
-                PlaySound(4);
-            }
-            if(SNARE02_BEATS[j] == 1) {
-                PlaySound(5);
-            }
-            if(HIHAT02_BEATS[j] == 1) {
-                PlaySound(6);
-            }
-            if(CRASH_BEATS[j] == 1) {
-                PlaySound(7);
+        //This could be improved to use a volume instead of 0/1
+
+        for(var trackIndex = 0; trackIndex < MAX_TRACKS; trackIndex++) {
+            for(var beatIndex = 0; beatIndex < MAX_BEATS; beatIndex++) {
+                if(TRACKS[trackIndex][beatIndex] == 1) {
+                    PlaySound(trackIndex);
+                }
             }
         }
     }
@@ -171,6 +153,16 @@ function ToggleBeat(buttonID)
 {
     console.debug("Button clicked: " + buttonID);
 
+    //Extract the track and beat numbers from the button ID
+    var trackNum = buttonID.substring(buttonID.indexOf("sb") + 2, buttonID.lastIndexOf("_"));
+    var beatNum = buttonID.substring(buttonID.indexOf("_") + 1, buttonID.length);
+
     //TODO: extract the indices from the passed track button ID
-    //TRACKS[trackNum][beatNum] = !TRACKS[trackNum][beatNum];
+    if(TRACKS[trackNum][beatNum] <= 0) {
+        TRACKS[trackNum][beatNum] = 1;
+    }
+    else
+    {
+        TRACKS[trackNum][beatNum] = 0;
+    } 
 }
