@@ -18,6 +18,7 @@ var currentBeat = 0;
 var tempo = 120;  //Beats per minute - TODO: adjust this from UI
 var timer;
 
+//Reset the sequencer, clearing it all and resetting the timing
 function Reset() {
     console.debug("Resetting sequencer");
     clearInterval(timer);
@@ -51,14 +52,9 @@ function Reset() {
             for(var j = 0; j < MAX_BEATS; j++)
             {
                 var sequencerButtonID = "sb" + i + "_" + j;
-                if(j == currentBeat)
-                {
-                    //document.getElementById(sequencerButtonID).addEventListener('click')
-                }
-                else
-                {
-                    //document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
-                }
+                document.getElementById(sequencerButtonID).addEventListener('click', function() {
+                    ToggleBeat(this.id); //Send the ID of the button clicked
+                });
             }
         }
 
@@ -66,7 +62,7 @@ function Reset() {
     for(var i = 0; i < MAX_BEATS; i++) {
         BASS01_BEATS[i] = 1; //TEST
         SNARE01_BEATS[i] = 0; 
-        HIHAT01_BEATS[i] = 0; 
+        HIHAT01_BEATS[i] = 1; //TEST
         RIDE_BEATS[i] = 0; 
         BASS02_BEATS[i] = 0; 
         SNARE02_BEATS[i] = 0; 
@@ -75,7 +71,7 @@ function Reset() {
     }
 }
 
-//Reset the sequencer
+//Stop the sequencer from playing
 function Stop() {
     if(isPlaying) {
         console.debug("Stopping sequencer");        
@@ -88,12 +84,14 @@ function Stop() {
     }
 }
 
+//Play the sequencer
 function Play() {
     console.debug("Starting sequencer");
     isPlaying = true;
     document.getElementById("playButton").style.backgroundColor="green";
 }
 
+//Called on the timer to play sounds and update the UI
 function Update() {
     if(isPlaying) {
         //Update sequencer UI for position indicator 
@@ -161,7 +159,18 @@ function Update() {
     }
   }
 
+  /// Utility Functions ///
+
   //Return the ms to delay based on the bpm provided
   function TempoToMillis(bpm){
     return 1000.0 / (tempo / 60.0);
   }
+
+//This would need to be refactored if we ever expanded to storing volume in the beat arrays
+function ToggleBeat(buttonID)
+{
+    console.debug("Button clicked: " + buttonID);
+
+    //TODO: extract the indices from the passed track button ID
+    //TRACKS[trackNum][beatNum] = !TRACKS[trackNum][beatNum];
+}
