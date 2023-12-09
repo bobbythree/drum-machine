@@ -58,17 +58,20 @@ function Update() {
 
     if(isPlaying) {
 
-        //Update sequencer UI for playing indicator
-        for(var i = 0; i < MAX_BEATS; i++)
+        //Update sequencer UI for playing indicator'
+        for(var i = 0; i < 8; i++)
         {
-            var sequencerButtonID = "sb" + i;
-            if(i == currentBeat)
+            for(var j = 0; j < MAX_BEATS; j++)
             {
-                document.getElementById(sequencerButtonID).style.backgroundColor="green";
-            }
-            else
-            {
-                document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+                var sequencerButtonID = "sb" + i + "_" + j;
+                if(j == currentBeat)
+                {
+                    document.getElementById(sequencerButtonID).style.backgroundColor="green";
+                }
+                else
+                {
+                    document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+                }
             }
         }
 
@@ -84,29 +87,29 @@ function Update() {
         
         //Play sounds that are stored in the arrays as 1 (on) or 0 (off).  
         //This could be improved to use a volume instead of o/1
-        for(var i = 0; i < MAX_BEATS; i++) {
-            if(BASS01_BEATS[i] == 1) {
+        for(var j = 0; j < MAX_BEATS; j++) {
+            if(BASS01_BEATS[j] == 1) {
                 PlaySound(0);
             }
-            if(SNARE01_BEATS[i] == 1) {
+            if(SNARE01_BEATS[j] == 1) {
                 PlaySound(1);
             }
-            if(HIHAT01_BEATS[i] == 1) {
+            if(HIHAT01_BEATS[j] == 1) {
                 PlaySound(2);
             }
-            if(RIDE_BEATS[i] == 1) {
+            if(RIDE_BEATS[j] == 1) {
                 PlaySound(3);
             }
-            if(BASS02_BEATS[i] == 1) {
+            if(BASS02_BEATS[j] == 1) {
                 PlaySound(4);
             }
-            if(SNARE02_BEATS[i] == 1) {
+            if(SNARE02_BEATS[j] == 1) {
                 PlaySound(5);
             }
-            if(HIHAT02_BEATS[i] == 1) {
+            if(HIHAT02_BEATS[j] == 1) {
                 PlaySound(6);
             }
-            if(CRASH_BEATS[i] == 1) {
+            if(CRASH_BEATS[j] == 1) {
                 PlaySound(7);
             }
         }
