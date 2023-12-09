@@ -21,6 +21,33 @@ function Reset() {
     timer = window.setInterval("Update()", TempoToMillis(tempo));  
     currentBeat = 0;
 
+    //Setup click listeners for transport buttons
+    document.getElementById("stopButton").addEventListener('click', function() {
+        Stop();
+      });
+  
+      document.getElementById("playButton").addEventListener('click', function() {
+        Play();
+      });
+  
+
+    //Setup the event handlers for clicking on the sequencer buttons
+    for(var i = 0; i < 8; i++)
+        {
+            for(var j = 0; j < MAX_BEATS; j++)
+            {
+                var sequencerButtonID = "sb" + i + "_" + j;
+                if(j == currentBeat)
+                {
+                    //document.getElementById(sequencerButtonID).addEventListener('click')
+                }
+                else
+                {
+                    //document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+                }
+            }
+        }
+
     //Clear the stored beats
     for(var i = 0; i < MAX_BEATS; i++) {
         BASS01_BEATS[i] = 0; 
@@ -56,14 +83,54 @@ function Play() {
 function Update() {
     //console.debug("Updating sequencer");
 
-    if(isPlaying) {
+    //Update sequencer UI for selected beats
 
-        //Update sequencer UI for playing indicator'
+    for(var i = 0; i < MAX_BEATS; i++)
+    {
+        if(BASS01_BEATS[i] == 1) {
+            var sequencerButtonID = "sb0_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+
+        if(SNARE01_BEATS[i] == 1) {
+            var sequencerButtonID = "sb1_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(HIHAT01_BEATS[i] == 1) {
+            var sequencerButtonID = "sb2_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(RIDE_BEATS[i] == 1) {
+            var sequencerButtonID = "sb3_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(BASS02_BEATS[i] == 1) {
+            var sequencerButtonID = "sb4_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(SNARE02_BEATS[i] == 1) {
+            var sequencerButtonID = "sb5_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(HIHAT02_BEATS[i] == 1) {
+            var sequencerButtonID = "sb6_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+        if(CRASH_BEATS[i] == 1) {
+            var sequencerButtonID = "sb7_" + i;
+            document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+        }
+    }
+
+
+    if(isPlaying) {
+        //Update sequencer UI for position indicator 
         for(var i = 0; i < 8; i++)
         {
             for(var j = 0; j < MAX_BEATS; j++)
             {
                 var sequencerButtonID = "sb" + i + "_" + j;
+                //Position indicator
                 if(j == currentBeat)
                 {
                     document.getElementById(sequencerButtonID).style.backgroundColor="green";

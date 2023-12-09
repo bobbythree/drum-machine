@@ -33,15 +33,7 @@ function Initialize()
       });
     });
 
-    //Setup click listeners for transport buttons
-    document.getElementById("stopButton").addEventListener('click', function() {
-      Stop();
-    });
-
-    document.getElementById("playButton").addEventListener('click', function() {
-      Play();
-    });
-
+    
     Reset();
 }
 
