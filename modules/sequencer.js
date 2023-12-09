@@ -1,5 +1,6 @@
 //Constants
 const MAX_BEATS = 16;
+const BASS01_BEATS = [MAX_BEATS];
 
 //Variables
 var isPlaying = false;
@@ -49,7 +50,7 @@ function Update() {
                 document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
             }
         }
-        
+
         if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
         {
             currentBeat = 0;
