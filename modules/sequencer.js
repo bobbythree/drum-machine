@@ -94,31 +94,44 @@ function Play() {
 //Called on the timer to play sounds and update the UI
 function Update() {
     if(isPlaying) {
-        //Update sequencer UI for position indicator 
+        //Update sequencer UI for position indicator, selected beats and default color
         for(var i = 0; i < MAX_TRACKS; i++) //Loop over each track
         {
             for(var j = 0; j < MAX_BEATS; j++) //Loop over each beat in each track
             {
                 var sequencerButtonID = "sb" + i + "_" + j;
-                //Position indicator
                 if(j == currentBeat)
                 {
-                    document.getElementById(sequencerButtonID).style.backgroundColor="green";
+                    document.getElementById(sequencerButtonID).style.backgroundColor="green"; //Position indicator
                 }
                 else
                 {     
                     if(TRACKS[i][j] == 1) {
-                        document.getElementById(sequencerButtonID).style.backgroundColor="darkred";
+                        document.getElementById(sequencerButtonID).style.backgroundColor="darkred"; //Beats
                     }
                     else
                     {
-                        document.getElementById(sequencerButtonID).style.backgroundColor="#bbb";
+                        document.getElementById(sequencerButtonID).style.backgroundColor="#bbb"; //Default
                     }
                 }
             }
         }
 
-        if(currentBeat >= MAX_BEATS - 1) //loop arounnd if we are at end of sequence
+        //Play sounds that are stored in the arrays as 1 (on) or 0 (off).  
+        //This could be improved to use a volume instead of 0/1
+        for(var trackIndex = 0; trackIndex < MAX_TRACKS; trackIndex++) {
+            for(var beatIndex = 0; beatIndex < MAX_BEATS; beatIndex++) {
+                if(beatIndex == currentBeat) {
+                    if(TRACKS[trackIndex][beatIndex] > 0) {
+                        PlaySound(trackIndex);
+                        console.debug("Playing sound at: " + trackIndex + " " + beatIndex);
+                    }
+                }
+            }
+        }
+
+        //loop arounnd if we are at end of sequence
+        if(currentBeat >= MAX_BEATS - 1) 
         {
             currentBeat = 0;
         }
@@ -127,21 +140,26 @@ function Update() {
             currentBeat++;
         }
         console.debug("Current beat: " + currentBeat);   
-        
-        //Play sounds that are stored in the arrays as 1 (on) or 0 (off).  
-        //This could be improved to use a volume instead of 0/1
-
-        for(var trackIndex = 0; trackIndex < MAX_TRACKS; trackIndex++) {
-            for(var beatIndex = 0; beatIndex < MAX_BEATS; beatIndex++) {
-                if(TRACKS[trackIndex][beatIndex] == 1) {
-                    PlaySound(trackIndex);
+    }
+    else //Update the selected beats so we can edit without playing
+    {
+        for(var i = 0; i < MAX_TRACKS; i++) //Loop over each track
+        {
+            for(var j = 0; j < MAX_BEATS; j++) //Loop over each beat in each track
+            {
+                var sequencerButtonID = "sb" + i + "_" + j;
+   
+                if(TRACKS[i][j] == 1) {
+                    document.getElementById(sequencerButtonID).style.backgroundColor="darkred"; //Beats
+                }
+                else
+                {
+                    document.getElementById(sequencerButtonID).style.backgroundColor="#bbb"; //Default
                 }
             }
         }
     }
   }
-
-  /// Utility Functions ///
 
   //Return the ms to delay based on the bpm provided
   function TempoToMillis(bpm){
