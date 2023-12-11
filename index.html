@@ -13,34 +13,193 @@
     <h1>Drum Machine</h1>
     <div class="container">
       <div class="pad">
-        <audio class="sound" src="./sounds/kick-01.wav"></audio>
+        <audio class="sound" src="./sounds/kick-01.wav" preload="auto"></audio>
         bass 01
       </div>
       <div class="pad">
-        <audio class="sound" src="./sounds/snare-01.wav"></audio>
+        <audio class="sound" src="./sounds/snare-01.wav" preload="auto"></audio>
         snare 01
       </div>
       <div class="pad">
-        <audio class="sound" src="./sounds/hi-hat-01.wav"></audio>
+        <audio class="sound" src="./sounds/hi-hat-01.wav" preload="auto"></audio>
         hi-hat 01</div>
       <div class="pad">
-        <audio class="sound" src="./sounds/ride.wav"></audio>
+        <audio class="sound" src="./sounds/ride.wav" preload="auto"></audio>
         ride</div>
       <div class="pad">
-        <audio class="sound" src="./sounds/kick-02.wav"></audio>
+        <audio class="sound" src="./sounds/kick-02.wav" preload="auto"></audio>
         bass 02</div>
       <div class="pad">
-        <audio class="sound" src="./sounds/snare-02.wav"></audio>
+        <audio class="sound" src="./sounds/snare-02.wav" preload="auto"></audio>
         snare 02</div>
       <div class="pad">
-        <audio class="sound" src="./sounds/hi-hat-02.wav"></audio>
+        <audio class="sound" src="./sounds/hi-hat-02.wav" preload="auto"></audio>
         hi-hat 02</div>
       <div class="pad">
-        <audio class="sound" src="./sounds/crash.wav"></audio>
+        <audio class="sound" src="./sounds/crash.wav" preload="auto"></audio>
         crash</div>
+    </div>
+    <div class="transport">
+      <span id="stopButton" class="transportButton">Stop</span>
+      <span id="playButton" class="transportButton">Play</span>
+    </div>
+    <div class="sequencer">   
+      <label class="sequencerLabel">bass 01</label>     
+      <span id="sb0_0" class="sequencerButton"></span>  
+      <span id="sb0_1" class="sequencerButton"></span>  
+      <span id="sb0_2" class="sequencerButton"></span>  
+      <span id="sb0_3" class="sequencerButton"></span>  
+      <span id="sb0_4" class="sequencerButton"></span>  
+      <span id="sb0_5" class="sequencerButton"></span>  
+      <span id="sb0_6" class="sequencerButton"></span>  
+      <span id="sb0_7" class="sequencerButton"></span>  
+      <span id="sb0_8" class="sequencerButton"></span>  
+      <span id="sb0_9" class="sequencerButton"></span>  
+      <span id="sb0_10" class="sequencerButton"></span>  
+      <span id="sb0_11" class="sequencerButton"></span>  
+      <span id="sb0_12" class="sequencerButton"></span>  
+      <span id="sb0_13" class="sequencerButton"></span>  
+      <span id="sb0_14" class="sequencerButton"></span>  
+      <span id="sb0_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">  
+      <label class="sequencerLabel">snare 01</label>          
+      <span id="sb1_0" class="sequencerButton"></span>  
+      <span id="sb1_1" class="sequencerButton"></span>  
+      <span id="sb1_2" class="sequencerButton"></span>  
+      <span id="sb1_3" class="sequencerButton"></span>  
+      <span id="sb1_4" class="sequencerButton"></span>  
+      <span id="sb1_5" class="sequencerButton"></span>  
+      <span id="sb1_6" class="sequencerButton"></span>  
+      <span id="sb1_7" class="sequencerButton"></span>  
+      <span id="sb1_8" class="sequencerButton"></span>  
+      <span id="sb1_9" class="sequencerButton"></span>  
+      <span id="sb1_10" class="sequencerButton"></span>  
+      <span id="sb1_11" class="sequencerButton"></span>  
+      <span id="sb1_12" class="sequencerButton"></span>  
+      <span id="sb1_13" class="sequencerButton"></span>  
+      <span id="sb1_14" class="sequencerButton"></span>  
+      <span id="sb1_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">      
+      <label class="sequencerLabel">hi-hat 01</label>   
+      <span id="sb2_0" class="sequencerButton"></span>  
+      <span id="sb2_1" class="sequencerButton"></span>  
+      <span id="sb2_2" class="sequencerButton"></span>  
+      <span id="sb2_3" class="sequencerButton"></span>  
+      <span id="sb2_4" class="sequencerButton"></span>  
+      <span id="sb2_5" class="sequencerButton"></span>  
+      <span id="sb2_6" class="sequencerButton"></span>  
+      <span id="sb2_7" class="sequencerButton"></span>  
+      <span id="sb2_8" class="sequencerButton"></span>  
+      <span id="sb2_9" class="sequencerButton"></span>  
+      <span id="sb2_10" class="sequencerButton"></span>  
+      <span id="sb2_11" class="sequencerButton"></span>  
+      <span id="sb2_12" class="sequencerButton"></span>  
+      <span id="sb2_13" class="sequencerButton"></span>  
+      <span id="sb2_14" class="sequencerButton"></span>  
+      <span id="sb2_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">      
+      <label class="sequencerLabel">ride</label>   
+      <span id="sb3_0" class="sequencerButton"></span>  
+      <span id="sb3_1" class="sequencerButton"></span>  
+      <span id="sb3_2" class="sequencerButton"></span>  
+      <span id="sb3_3" class="sequencerButton"></span>  
+      <span id="sb3_4" class="sequencerButton"></span>  
+      <span id="sb3_5" class="sequencerButton"></span>  
+      <span id="sb3_6" class="sequencerButton"></span>  
+      <span id="sb3_7" class="sequencerButton"></span>  
+      <span id="sb3_8" class="sequencerButton"></span>  
+      <span id="sb3_9" class="sequencerButton"></span>  
+      <span id="sb3_10" class="sequencerButton"></span>  
+      <span id="sb3_11" class="sequencerButton"></span>  
+      <span id="sb3_12" class="sequencerButton"></span>  
+      <span id="sb3_13" class="sequencerButton"></span>  
+      <span id="sb3_14" class="sequencerButton"></span>  
+      <span id="sb3_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">    
+      <label class="sequencerLabel">bass 02</label>     
+      <span id="sb4_0" class="sequencerButton"></span>  
+      <span id="sb4_1" class="sequencerButton"></span>  
+      <span id="sb4_2" class="sequencerButton"></span>  
+      <span id="sb4_3" class="sequencerButton"></span>  
+      <span id="sb4_4" class="sequencerButton"></span>  
+      <span id="sb4_5" class="sequencerButton"></span>  
+      <span id="sb4_6" class="sequencerButton"></span>  
+      <span id="sb4_7" class="sequencerButton"></span>  
+      <span id="sb4_8" class="sequencerButton"></span>  
+      <span id="sb4_9" class="sequencerButton"></span>  
+      <span id="sb4_10" class="sequencerButton"></span>  
+      <span id="sb4_11" class="sequencerButton"></span>  
+      <span id="sb4_12" class="sequencerButton"></span>  
+      <span id="sb4_13" class="sequencerButton"></span>  
+      <span id="sb4_14" class="sequencerButton"></span>  
+      <span id="sb4_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">    
+      <label class="sequencerLabel">snare 02</label>     
+      <span id="sb5_0" class="sequencerButton"></span>  
+      <span id="sb5_1" class="sequencerButton"></span>  
+      <span id="sb5_2" class="sequencerButton"></span>  
+      <span id="sb5_3" class="sequencerButton"></span>  
+      <span id="sb5_4" class="sequencerButton"></span>  
+      <span id="sb5_5" class="sequencerButton"></span>  
+      <span id="sb5_6" class="sequencerButton"></span>  
+      <span id="sb5_7" class="sequencerButton"></span>  
+      <span id="sb5_8" class="sequencerButton"></span>  
+      <span id="sb5_9" class="sequencerButton"></span>  
+      <span id="sb5_10" class="sequencerButton"></span>  
+      <span id="sb5_11" class="sequencerButton"></span>  
+      <span id="sb5_12" class="sequencerButton"></span>  
+      <span id="sb5_13" class="sequencerButton"></span>  
+      <span id="sb5_14" class="sequencerButton"></span>  
+      <span id="sb5_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">    
+      <label class="sequencerLabel">hi-hat 02</label>     
+      <span id="sb6_0" class="sequencerButton"></span>  
+      <span id="sb6_1" class="sequencerButton"></span>  
+      <span id="sb6_2" class="sequencerButton"></span>  
+      <span id="sb6_3" class="sequencerButton"></span>  
+      <span id="sb6_4" class="sequencerButton"></span>  
+      <span id="sb6_5" class="sequencerButton"></span>  
+      <span id="sb6_6" class="sequencerButton"></span>  
+      <span id="sb6_7" class="sequencerButton"></span>  
+      <span id="sb6_8" class="sequencerButton"></span>  
+      <span id="sb6_9" class="sequencerButton"></span>  
+      <span id="sb6_10" class="sequencerButton"></span>  
+      <span id="sb6_11" class="sequencerButton"></span>  
+      <span id="sb6_12" class="sequencerButton"></span>  
+      <span id="sb6_13" class="sequencerButton"></span>  
+      <span id="sb6_14" class="sequencerButton"></span>  
+      <span id="sb6_15" class="sequencerButton"></span>  
+    </div>
+    <div class="sequencer">    
+      <label class="sequencerLabel">crash</label>     
+      <span id="sb7_0" class="sequencerButton"></span>  
+      <span id="sb7_1" class="sequencerButton"></span>  
+      <span id="sb7_2" class="sequencerButton"></span>  
+      <span id="sb7_3" class="sequencerButton"></span>  
+      <span id="sb7_4" class="sequencerButton"></span>  
+      <span id="sb7_5" class="sequencerButton"></span>  
+      <span id="sb7_6" class="sequencerButton"></span>  
+      <span id="sb7_7" class="sequencerButton"></span>  
+      <span id="sb7_8" class="sequencerButton"></span>  
+      <span id="sb7_9" class="sequencerButton"></span>  
+      <span id="sb7_10" class="sequencerButton"></span>  
+      <span id="sb7_11" class="sequencerButton"></span>  
+      <span id="sb7_12" class="sequencerButton"></span>  
+      <span id="sb7_13" class="sequencerButton"></span>  
+      <span id="sb7_14" class="sequencerButton"></span>  
+      <span id="sb7_15" class="sequencerButton"></span>  
     </div>
   </div>
 
+  <!-- Have to declar these bottom up so functions in other files may be called from script.js -->
+  <script src="modules/sequencer.js"></script>
   <script src="script.js"></script>
+  
 </body>
 </html>
