@@ -111,7 +111,11 @@ function Update() {
                     }
                     else
                     {
+                        if((j >= 0 && j < 4) || (j >= 8 && j < 12)){ //color buttons while playing
                         document.getElementById(sequencerButtonID).style.backgroundColor="#bbb"; //Default
+                        } else {
+                            document.getElementById(sequencerButtonID).style.backgroundColor="gray";
+                        }
                     }
                 }
             }
@@ -154,7 +158,11 @@ function Update() {
                 }
                 else
                 {
-                    document.getElementById(sequencerButtonID).style.backgroundColor="#bbb"; //Default
+                    if((j >= 0 && j < 4) || (j >= 8 && j < 12)){ //color buttons while not playing
+                        document.getElementById(sequencerButtonID).style.backgroundColor="#bbb"; //Default
+                        } else {
+                            document.getElementById(sequencerButtonID).style.backgroundColor="gray";
+                        }
                 }
             }
         }
