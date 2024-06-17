@@ -36,7 +36,8 @@ h1 {
   height: 400px;    
 }
 
-.container div {  
+.container div { 
+  height: 70%; 
   aspect-ratio: 1;
   border-radius: 20%;
   text-align: center;
